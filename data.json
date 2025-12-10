@@ -2438,22 +2438,76 @@
       "password": "Qwerty123",
       "addresses": [
         {
-          "name": "Abhishek R",
-          "email": "test@gmail.com",
-          "phone": "1234567788",
-          "street": "11th Main",
-          "city": "Banaglore",
-          "state": "Karnataka",
-          "pinCode": "560034"
+          "name": "alok yadav",
+          "email": "avinashsarojpersonal@gmail.com",
+          "phone": "090445878984",
+          "street": "Udaipurr",
+          "city": "Lalganj Ajhara",
+          "state": "Uttar Pradeshr",
+          "pinCode": "2301258"
         },
         {
-          "name": "Abhishek R",
-          "email": "test@gmail.com",
-          "phone": "1234567788",
-          "street": "11th Main",
-          "city": "Banaglore",
-          "state": "Karnataka",
-          "pinCode": "560034"
+          "name": "alok Kumar yadav",
+          "email": "avinashsarojpersonal@gmail.com",
+          "street": "Udaipurr",
+          "pinCode": "2301258",
+          "phone": "090445878984",
+          "state": "Uttar Pradeshr",
+          "city": "Lalganj Ajhara"
+        },
+        {
+          "name": "Avinash Kumar  Saroj",
+          "email": "avinashsaroj99@gmail.com",
+          "street": "Das Garden , Gali no  19 A/42",
+          "pinCode": "230125",
+          "phone": "52044587898",
+          "state": "Uttar Pradesh",
+          "city": "Atheha"
+        },
+        {
+          "name": "Prashant",
+          "email": "pr@gmail.com",
+          "phone": "09044587898",
+          "street": "Udaipur",
+          "city": "Delhi",
+          "state": "Uttar Pradesh",
+          "pinCode": "230125"
+        },
+        {
+          "name": "Warish mohammad",
+          "email": "wwarish@gmail.com",
+          "phone": "52044587898",
+          "street": "Udaipur",
+          "city": "AMETHI (CHHATRAPATI SHAHUJI MAHARAJ NAGAR)",
+          "state": "Uttar Pradesh",
+          "pinCode": "524565"
+        },
+        {
+          "name": "Saroj Passi",
+          "email": "avinashsaroj99@gmail.com",
+          "phone": "52044587898",
+          "street": "Udaipur",
+          "city": "fgfdgfd",
+          "state": "Uttar Pradesh",
+          "pinCode": "230126"
+        },
+        {
+          "name": "Prashant Kumar Prakash....",
+          "email": "pr@gmail.com",
+          "street": "Udaipur",
+          "pinCode": "230125",
+          "phone": "09044587898",
+          "state": "Uttar Pradesh",
+          "city": "Delhi"
+        },
+        {
+          "name": "Saroj kumar Passi",
+          "email": "avinashsaroj99@gmail.com",
+          "phone": "52044587898",
+          "street": "Udaipur",
+          "city": "Delhi",
+          "state": "Uttar Pradesh",
+          "pinCode": "230126"
         }
       ],
       "id": "1"
@@ -2468,326 +2522,449 @@
       "id": "8876",
       "email": "avinashsaroj999@gmail.com",
       "password": "Avinash123",
-      "addresses": [
-        {
-          "name": "Avinash Saroj",
-          "email": "avinashsarojpersonal@gmail.com",
-          "phone": "09044587898",
-          "street": "Udaipur",
-          "city": "Lalganj",
-          "state": "Uttar Pradesh",
-          "pinCode": "230125"
-        }
-      ]
+      "addresses": []
+    },
+    {
+      "id": "2dcb",
+      "email": "avinashsaroj.sde@gmail.com",
+      "password": "Avinash@123",
+      "addresses": []
     }
   ],
   "cart": [
     {
-      "id": "3",
-      "title": "Samsung Universe 9",
-      "description": "Samsung's new variant which goes beyond Galaxy to the Universe",
-      "price": 1249,
-      "discountPercentage": 15.46,
-      "rating": 4.09,
-      "stock": 36,
-      "brand": "Samsung",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+      "id": "f7ec",
+      "title": "MacBook Pro",
+      "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+      "price": 1749,
+      "discountPercentage": 11.02,
+      "rating": 4.57,
+      "stock": 83,
+      "brand": "Apple",
+      "category": "laptops",
+      "thumbnail": "https://i.dummyjson.com/data/products/6/thumbnail.png",
       "images": [
-        "https://i.dummyjson.com/data/products/3/1.jpg"
-      ],
-      "quantity": 2,
-      "user": 2
-    },
-    {
-      "id": "5",
-      "title": "Huawei P30",
-      "description": "Huawei’s re-badged P30 Pro New Edition was officially unveiled yesterday in Germany and now the device has made its way to the UK.",
-      "price": 499,
-      "discountPercentage": 10.58,
-      "rating": 4.09,
-      "stock": 32,
-      "brand": "Huawei",
-      "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/5/1.jpg",
-        "https://i.dummyjson.com/data/products/5/2.jpg",
-        "https://i.dummyjson.com/data/products/5/3.jpg"
+        "https://i.dummyjson.com/data/products/6/1.png",
+        "https://i.dummyjson.com/data/products/6/2.jpg",
+        "https://i.dummyjson.com/data/products/6/3.png",
+        "https://i.dummyjson.com/data/products/6/4.jpg"
       ],
       "quantity": 1,
-      "user": 2
+      "user": "8876"
     },
     {
-      "title": "iPhone X",
-      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-      "price": 899,
-      "discountPercentage": 17.94,
-      "rating": 4.44,
-      "stock": 34,
+      "id": "8236",
+      "title": "perfume Oil",
+      "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
+      "price": 13,
+      "discountPercentage": 8.4,
+      "rating": 4.26,
+      "stock": 65,
+      "brand": "Impression of Acqua Di Gio",
+      "category": "fragrances",
+      "thumbnail": "https://i.dummyjson.com/data/products/11/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/11/1.jpg",
+        "https://i.dummyjson.com/data/products/11/2.jpg",
+        "https://i.dummyjson.com/data/products/11/3.jpg",
+        "https://i.dummyjson.com/data/products/11/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": "8876"
+    },
+    {
+      "id": "4f25",
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "discountPercentage": 12.96,
+      "rating": 4.69,
+      "stock": 94,
       "brand": "Apple",
       "category": "smartphones",
-      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/2/1.jpg",
-        "https://i.dummyjson.com/data/products/2/2.jpg",
-        "https://i.dummyjson.com/data/products/2/3.jpg",
-        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
-      ],
-      "quantity": 2,
-      "user": 1,
-      "id": "6"
-    },
-    {
-      "id": "fb94",
-      "title": "FREE FIRE T Shirt",
-      "description": "quality and professional print - It doesn't just look high quality, it is high quality.",
-      "price": 10,
-      "discountPercentage": 14.72,
-      "rating": 4.52,
-      "stock": 128,
-      "brand": "FREE FIRE",
-      "category": "mens-shirts",
-      "thumbnail": "https://i.dummyjson.com/data/products/52/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/52/1.png",
-        "https://i.dummyjson.com/data/products/52/2.png",
-        "https://i.dummyjson.com/data/products/52/3.jpg",
-        "https://i.dummyjson.com/data/products/52/4.jpg",
-        "https://i.dummyjson.com/data/products/52/thumbnail.jpg"
+        "https://i.dummyjson.com/data/products/1/1.jpg",
+        "https://i.dummyjson.com/data/products/1/2.jpg",
+        "https://i.dummyjson.com/data/products/1/3.jpg",
+        "https://i.dummyjson.com/data/products/1/4.jpg",
+        "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
       ],
       "quantity": 1,
-      "user": "8876"
+      "user": "1"
     },
     {
-      "id": "26df",
-      "title": "FREE FIRE T Shirt",
-      "description": "quality and professional print - It doesn't just look high quality, it is high quality.",
-      "price": 10,
-      "discountPercentage": 14.72,
-      "rating": 4.52,
-      "stock": 128,
-      "brand": "FREE FIRE",
-      "category": "mens-shirts",
-      "thumbnail": "https://i.dummyjson.com/data/products/52/thumbnail.jpg",
+      "id": "7172",
+      "title": "OPPOF19",
+      "description": "OPPO F19 is officially announced on April 2021.",
+      "price": 280,
+      "discountPercentage": 17.91,
+      "rating": 4.3,
+      "stock": 123,
+      "brand": "OPPO",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/52/1.png",
-        "https://i.dummyjson.com/data/products/52/2.png",
-        "https://i.dummyjson.com/data/products/52/3.jpg",
-        "https://i.dummyjson.com/data/products/52/4.jpg",
-        "https://i.dummyjson.com/data/products/52/thumbnail.jpg"
+        "https://i.dummyjson.com/data/products/4/1.jpg",
+        "https://i.dummyjson.com/data/products/4/2.jpg",
+        "https://i.dummyjson.com/data/products/4/3.jpg",
+        "https://i.dummyjson.com/data/products/4/4.jpg",
+        "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
       ],
       "quantity": 1,
-      "user": "8876"
+      "user": "1"
     },
     {
-      "id": "2d1b",
-      "title": "FREE FIRE T Shirt",
-      "description": "quality and professional print - It doesn't just look high quality, it is high quality.",
-      "price": 10,
-      "discountPercentage": 14.72,
-      "rating": 4.52,
-      "stock": 128,
-      "brand": "FREE FIRE",
-      "category": "mens-shirts",
-      "thumbnail": "https://i.dummyjson.com/data/products/52/thumbnail.jpg",
+      "id": "4658",
+      "title": "iPhone 9",
+      "description": "An apple mobile which is nothing like apple",
+      "price": 549,
+      "discountPercentage": 12.96,
+      "rating": 4.69,
+      "stock": 94,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
       "images": [
-        "https://i.dummyjson.com/data/products/52/1.png",
-        "https://i.dummyjson.com/data/products/52/2.png",
-        "https://i.dummyjson.com/data/products/52/3.jpg",
-        "https://i.dummyjson.com/data/products/52/4.jpg",
-        "https://i.dummyjson.com/data/products/52/thumbnail.jpg"
+        "https://i.dummyjson.com/data/products/1/1.jpg",
+        "https://i.dummyjson.com/data/products/1/2.jpg",
+        "https://i.dummyjson.com/data/products/1/3.jpg",
+        "https://i.dummyjson.com/data/products/1/4.jpg",
+        "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
       ],
       "quantity": 1,
-      "user": "8876"
+      "user": "1"
+    },
+    {
+      "id": "e5f1",
+      "title": "Samsung Galaxy Book",
+      "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+      "price": 1499,
+      "discountPercentage": 4.15,
+      "rating": 4.25,
+      "stock": 50,
+      "brand": "Samsung",
+      "category": "laptops",
+      "thumbnail": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/7/1.jpg",
+        "https://i.dummyjson.com/data/products/7/2.jpg",
+        "https://i.dummyjson.com/data/products/7/3.jpg",
+        "https://i.dummyjson.com/data/products/7/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": "1"
+    },
+    {
+      "id": "103a",
+      "title": "Brown Perfume",
+      "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
+      "price": 40,
+      "discountPercentage": 15.66,
+      "rating": 4,
+      "stock": 52,
+      "brand": "Royal_Mirage",
+      "category": "fragrances",
+      "thumbnail": "https://i.dummyjson.com/data/products/12/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/12/1.jpg",
+        "https://i.dummyjson.com/data/products/12/2.jpg",
+        "https://i.dummyjson.com/data/products/12/3.png",
+        "https://i.dummyjson.com/data/products/12/4.jpg",
+        "https://i.dummyjson.com/data/products/12/thumbnail.jpg"
+      ],
+      "quantity": 1,
+      "user": "1"
     }
   ],
   "orders": [
     {
+      "id": "be65",
       "items": [
         {
-          "title": "iPhone X",
-          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-          "price": 899,
-          "discountPercentage": 17.94,
-          "rating": 4.44,
-          "stock": 34,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "id": "6717",
+          "title": "HP Pavilion 15-DK1056WM",
+          "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+          "price": 1099,
+          "discountPercentage": 6.18,
+          "rating": 4.43,
+          "stock": 89,
+          "brand": "HP Pavilion",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
           "images": [
-            "https://i.dummyjson.com/data/products/2/1.jpg",
-            "https://i.dummyjson.com/data/products/2/2.jpg",
-            "https://i.dummyjson.com/data/products/2/3.jpg",
-            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+            "https://i.dummyjson.com/data/products/10/1.jpg",
+            "https://i.dummyjson.com/data/products/10/2.jpg",
+            "https://i.dummyjson.com/data/products/10/3.jpg",
+            "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
           ],
-          "quantity": 2,
-          "user": 1,
-          "id": 6
+          "quantity": 1,
+          "user": "8876"
+        },
+        {
+          "id": "90c2",
+          "title": "perfume Oil",
+          "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
+          "price": 13,
+          "discountPercentage": 8.4,
+          "rating": 4.26,
+          "stock": 65,
+          "brand": "Impression of Acqua Di Gio",
+          "category": "fragrances",
+          "thumbnail": "https://i.dummyjson.com/data/products/11/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/11/1.jpg",
+            "https://i.dummyjson.com/data/products/11/2.jpg",
+            "https://i.dummyjson.com/data/products/11/3.jpg",
+            "https://i.dummyjson.com/data/products/11/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": "8876"
         }
       ],
-      "totalAmount": 1798,
+      "totalAmount": 1112,
       "totalItems": 2,
       "user": {
-        "email": "test@gmail.com",
-        "password": "Qwerty123",
+        "id": "8876",
+        "email": "avinashsaroj999@gmail.com",
+        "password": "Avinash123",
         "addresses": [
           {
-            "name": "Abhishek R",
-            "email": "test@gmail.com",
-            "phone": "1234567788",
-            "street": "11th Main",
-            "city": "Banaglore",
-            "state": "Karnataka",
-            "pinCode": "560034"
-          },
-          {
-            "name": "Abhishek R",
-            "email": "test@gmail.com",
-            "phone": "1234567788",
-            "street": "11th Main",
-            "city": "Banaglore",
-            "state": "Karnataka",
-            "pinCode": "560034"
+            "name": "Avinash Saroj",
+            "email": "avinashsarojpersonal@gmail.com",
+            "phone": "09044587898",
+            "street": "Udaipur",
+            "city": "Lalganj",
+            "state": "Uttar Pradesh",
+            "pinCode": "230125"
           }
-        ],
-        "id": 1
+        ]
       },
-      "paymentMethod": "card",
+      "paymentMethod": "cash",
       "selectedAddress": {
-        "name": "Abhishek R",
-        "email": "test@gmail.com",
-        "phone": "1234567788",
-        "street": "11th Main",
-        "city": "Banaglore",
-        "state": "Karnataka",
-        "pinCode": "560034"
-      },
-      "id": "1"
+        "name": "Avinash Saroj",
+        "email": "avinashsarojpersonal@gmail.com",
+        "phone": "09044587898",
+        "street": "Udaipur",
+        "city": "Lalganj",
+        "state": "Uttar Pradesh",
+        "pinCode": "230125"
+      }
     },
     {
+      "id": "57b6",
       "items": [
         {
-          "title": "iPhone X",
-          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-          "price": 899,
-          "discountPercentage": 17.94,
-          "rating": 4.44,
-          "stock": 34,
-          "brand": "Apple",
+          "id": "02b0",
+          "title": "OPPOF19",
+          "description": "OPPO F19 is officially announced on April 2021.",
+          "price": 280,
+          "discountPercentage": 17.91,
+          "rating": 4.3,
+          "stock": 123,
+          "brand": "OPPO",
           "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
           "images": [
-            "https://i.dummyjson.com/data/products/2/1.jpg",
-            "https://i.dummyjson.com/data/products/2/2.jpg",
-            "https://i.dummyjson.com/data/products/2/3.jpg",
-            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+            "https://i.dummyjson.com/data/products/4/1.jpg",
+            "https://i.dummyjson.com/data/products/4/2.jpg",
+            "https://i.dummyjson.com/data/products/4/3.jpg",
+            "https://i.dummyjson.com/data/products/4/4.jpg",
+            "https://i.dummyjson.com/data/products/4/thumbnail.jpg"
           ],
-          "quantity": 2,
-          "user": 1,
-          "id": 6
+          "quantity": 1,
+          "user": "8876"
         }
       ],
-      "totalAmount": 1798,
-      "totalItems": 2,
+      "totalAmount": 280,
+      "totalItems": 1,
       "user": {
-        "email": "test@gmail.com",
-        "password": "Qwerty123",
+        "id": "8876",
+        "email": "avinashsaroj999@gmail.com",
+        "password": "Avinash123",
         "addresses": [
           {
-            "name": "Abhishek R",
-            "email": "test@gmail.com",
-            "phone": "1234567788",
-            "street": "11th Main",
-            "city": "Banaglore",
-            "state": "Karnataka",
-            "pinCode": "560034"
-          },
-          {
-            "name": "Abhishek R",
-            "email": "test@gmail.com",
-            "phone": "1234567788",
-            "street": "11th Main",
-            "city": "Banaglore",
-            "state": "Karnataka",
-            "pinCode": "560034"
+            "name": "Avinash Saroj",
+            "email": "avinashsarojpersonal@gmail.com",
+            "phone": "09044587898",
+            "street": "Udaipur",
+            "city": "Lalganj",
+            "state": "Uttar Pradesh",
+            "pinCode": "230125"
           }
-        ],
-        "id": 1
+        ]
       },
-      "paymentMethod": "card",
+      "paymentMethod": "cash",
       "selectedAddress": {
-        "name": "Abhishek R",
-        "email": "test@gmail.com",
-        "phone": "1234567788",
-        "street": "11th Main",
-        "city": "Banaglore",
-        "state": "Karnataka",
-        "pinCode": "560034"
-      },
-      "id": "2"
+        "name": "Avinash Saroj",
+        "email": "avinashsarojpersonal@gmail.com",
+        "phone": "09044587898",
+        "street": "Udaipur",
+        "city": "Lalganj",
+        "state": "Uttar Pradesh",
+        "pinCode": "230125"
+      }
     },
     {
+      "id": "ad37",
       "items": [
         {
-          "title": "iPhone X",
-          "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
-          "price": 899,
-          "discountPercentage": 17.94,
-          "rating": 4.44,
-          "stock": 34,
-          "brand": "Apple",
-          "category": "smartphones",
-          "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+          "id": "1eff",
+          "title": "Microsoft Surface Laptop 4",
+          "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+          "price": 1499,
+          "discountPercentage": 10.23,
+          "rating": 4.43,
+          "stock": 68,
+          "brand": "Microsoft Surface",
+          "category": "laptops",
+          "thumbnail": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
           "images": [
-            "https://i.dummyjson.com/data/products/2/1.jpg",
-            "https://i.dummyjson.com/data/products/2/2.jpg",
-            "https://i.dummyjson.com/data/products/2/3.jpg",
-            "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+            "https://i.dummyjson.com/data/products/8/1.jpg",
+            "https://i.dummyjson.com/data/products/8/2.jpg",
+            "https://i.dummyjson.com/data/products/8/3.jpg",
+            "https://i.dummyjson.com/data/products/8/4.jpg",
+            "https://i.dummyjson.com/data/products/8/thumbnail.jpg"
           ],
-          "quantity": 2,
-          "user": 1,
-          "id": 6
+          "quantity": 1,
+          "user": "8876"
         }
       ],
-      "totalAmount": 1798,
-      "totalItems": 2,
+      "totalAmount": 1499,
+      "totalItems": 1,
       "user": {
-        "email": "test@gmail.com",
-        "password": "Qwerty123",
+        "id": "8876",
+        "email": "avinashsaroj999@gmail.com",
+        "password": "Avinash123",
         "addresses": [
           {
-            "name": "Abhishek R",
-            "email": "test@gmail.com",
-            "phone": "1234567788",
-            "street": "11th Main",
-            "city": "Banaglore",
-            "state": "Karnataka",
-            "pinCode": "560034"
-          },
-          {
-            "name": "Abhishek R",
-            "email": "test@gmail.com",
-            "phone": "1234567788",
-            "street": "11th Main",
-            "city": "Banaglore",
-            "state": "Karnataka",
-            "pinCode": "560034"
+            "name": "Avinash Saroj",
+            "email": "avinashsarojpersonal@gmail.com",
+            "phone": "09044587898",
+            "street": "Udaipur",
+            "city": "Lalganj",
+            "state": "Uttar Pradesh",
+            "pinCode": "230125"
           }
-        ],
-        "id": 1
+        ]
       },
       "paymentMethod": "card",
       "selectedAddress": {
-        "name": "Abhishek R",
-        "email": "test@gmail.com",
-        "phone": "1234567788",
-        "street": "11th Main",
-        "city": "Banaglore",
-        "state": "Karnataka",
-        "pinCode": "560034"
+        "name": "Avinash Saroj",
+        "email": "avinashsarojpersonal@gmail.com",
+        "phone": "09044587898",
+        "street": "Udaipur",
+        "city": "Lalganj",
+        "state": "Uttar Pradesh",
+        "pinCode": "230125"
+      }
+    },
+    {
+      "id": "e203",
+      "items": [
+        {
+          "id": "1462",
+          "title": "Non-Alcoholic Concentrated Perfume Oil",
+          "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
+          "price": 120,
+          "discountPercentage": 15.6,
+          "rating": 4.21,
+          "stock": 114,
+          "brand": "Al Munakh",
+          "category": "fragrances",
+          "thumbnail": "https://i.dummyjson.com/data/products/14/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/14/1.jpg",
+            "https://i.dummyjson.com/data/products/14/2.jpg",
+            "https://i.dummyjson.com/data/products/14/3.jpg",
+            "https://i.dummyjson.com/data/products/14/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": "8876"
+        }
+      ],
+      "totalAmount": 120,
+      "totalItems": 1,
+      "user": {
+        "id": "8876",
+        "email": "avinashsaroj999@gmail.com",
+        "password": "Avinash123",
+        "addresses": [
+          {
+            "name": "Avinash Saroj",
+            "email": "avinashsarojpersonal@gmail.com",
+            "phone": "09044587898",
+            "street": "Udaipur",
+            "city": "Lalganj",
+            "state": "Uttar Pradesh",
+            "pinCode": "230125"
+          }
+        ]
       },
-      "id": "3"
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Avinash Saroj",
+        "email": "avinashsarojpersonal@gmail.com",
+        "phone": "09044587898",
+        "street": "Udaipur",
+        "city": "Lalganj",
+        "state": "Uttar Pradesh",
+        "pinCode": "230125"
+      }
+    },
+    {
+      "id": "0e82",
+      "items": [
+        {
+          "id": "c910",
+          "title": "Key Holder",
+          "description": "Attractive DesignMetallic materialFour key hooksReliable & DurablePremium Quality",
+          "price": 30,
+          "discountPercentage": 2.92,
+          "rating": 4.92,
+          "stock": 54,
+          "brand": "Golden",
+          "category": "home-decoration",
+          "thumbnail": "https://i.dummyjson.com/data/products/30/thumbnail.jpg",
+          "images": [
+            "https://i.dummyjson.com/data/products/30/1.jpg",
+            "https://i.dummyjson.com/data/products/30/2.jpg",
+            "https://i.dummyjson.com/data/products/30/3.jpg",
+            "https://i.dummyjson.com/data/products/30/thumbnail.jpg"
+          ],
+          "quantity": 1,
+          "user": "8876"
+        }
+      ],
+      "totalAmount": 30,
+      "totalItems": 1,
+      "user": {
+        "id": "8876",
+        "email": "avinashsaroj999@gmail.com",
+        "password": "Avinash123",
+        "addresses": [
+          {
+            "name": "Avinash Saroj",
+            "email": "avinashsarojpersonal@gmail.com",
+            "phone": "09044587898",
+            "street": "Udaipur",
+            "city": "Lalganj",
+            "state": "Uttar Pradesh",
+            "pinCode": "230125"
+          }
+        ]
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Avinash Saroj",
+        "email": "avinashsarojpersonal@gmail.com",
+        "phone": "09044587898",
+        "street": "Udaipur",
+        "city": "Lalganj",
+        "state": "Uttar Pradesh",
+        "pinCode": "230125"
+      },
+      "status": "pending"
     }
   ]
 }

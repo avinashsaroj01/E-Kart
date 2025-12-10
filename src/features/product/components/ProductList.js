@@ -3,12 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchBrandsAsync,
   fetchCategoriesAsync,
+  fetchAllProductsAsync,
   fetchProductsByFiltersAsync,
   selectAllProducts,
   selectBrands,
   selectCategories,
   selectTotalItems,
-} from '../productSlice';
+} from "../productSlice";
 import { Dialog, Disclosure, Menu, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import {
@@ -39,18 +40,19 @@ function classNames(...classes) {
 export default function ProductList() {
   const dispatch = useDispatch();
   const products = useSelector(selectAllProducts);
+  console.log("all products...." + products);
   const brands = useSelector(selectBrands);
   const categories = useSelector(selectCategories);
   const totalItems = useSelector(selectTotalItems);
   const filters = [
     {
-      id: 'category',
-      name: 'Category',
+      id: "category",
+      name: "Category",
       options: categories,
     },
     {
-      id: 'brand',
-      name: 'Brands',
+      id: "brand",
+      name: "Brands",
       options: brands,
     },
   ];
@@ -103,6 +105,7 @@ export default function ProductList() {
   useEffect(() => {
     dispatch(fetchBrandsAsync());
     dispatch(fetchCategoriesAsync());
+    dispatch(fetchAllProductsAsync());
   }, []);
 
   return (
