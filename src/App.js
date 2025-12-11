@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
 import PageNotFound from "./pages/404";
+import SignOutPage from "./pages/SignOutPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -43,6 +45,14 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignupPage></SignupPage>,
+  },
+  {
+    path: "/signOut",
+    element: <SignOutPage></SignOutPage>,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPasswordPage></ForgotPasswordPage>,
   },
   {
     path: "/cart",
