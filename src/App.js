@@ -1,11 +1,13 @@
 import { Counter } from './features/counter/Counter';
 import './App.css';
 import Home from './pages/Home';
-import LoginPage from './pages/LoginPage';
-import SignupPage from './pages/SignupPage';
+import AdminHome from "./pages/AdminHome";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 import PageNotFound from "./pages/404";
 import SignOutPage from "./pages/SignOutPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -16,6 +18,7 @@ import Cart from "./features/cart/Cart";
 import CartPage from "./pages/CartPage";
 import Checkout from "./pages/Checkout";
 import ProductDetailPage from "./pages/ProductDetailPage";
+import AdminProductDetailPage from "./pages/AdminProductDetailPage";
 import Protected from "./features/auth/components/Protected";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,6 +32,8 @@ import {
   selectUserInfo,
   updateUserAsync,
 } from "./features/user/userSlice";
+import AdminProtected from "./features/auth/components/AdminProtected";
+import ProductFormPage from "./pages/ProductFormPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -36,6 +41,14 @@ const router = createBrowserRouter([
       <Protected>
         <Home></Home>
       </Protected>
+    ),
+  },
+  {
+    path: "/admin",
+    element: (
+      <AdminProtected>
+        <AdminHome></AdminHome>
+      </AdminProtected>
     ),
   },
   {
@@ -76,6 +89,30 @@ const router = createBrowserRouter([
       <Protected>
         <ProductDetailPage></ProductDetailPage>
       </Protected>
+    ),
+  },
+  {
+    path: "admin/product-detail/:id",
+    element: (
+      <AdminProtected>
+        <AdminProductDetailPage></AdminProductDetailPage>
+      </AdminProtected>
+    ),
+  },
+  {
+    path: "admin/product-form",
+    element: (
+      <AdminProtected>
+        <ProductFormPage></ProductFormPage>
+      </AdminProtected>
+    ),
+  },
+  {
+    path: "admin/product-form/edit/:id",
+    element: (
+      <AdminProtected>
+        <ProductFormPage></ProductFormPage>
+      </AdminProtected>
     ),
   },
   {

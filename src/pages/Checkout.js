@@ -24,6 +24,7 @@ function Checkout() {
     formState: { errors },
   } = useForm();
 
+
   const user = useSelector(selectUserInfo);
   const items = useSelector(selectItems);
   const currentOrder = useSelector(selectCurrentOrder);

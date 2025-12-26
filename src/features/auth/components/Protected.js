@@ -8,6 +8,7 @@ function Protected({children}) {
     if(!user){
         return <Navigate to='/login' replace={true}></Navigate>
     }
+   
     return children;
 }
 
