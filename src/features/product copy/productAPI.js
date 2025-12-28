@@ -6,6 +6,7 @@ export function fetchAllProducts() {
     resolve({ data });
   });
 }
+
 export function createProduct(product) {
   return new Promise(async (resolve) => {
     //TODO: we will not hard-code server URL here

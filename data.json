@@ -2649,7 +2649,8 @@
         "city": "Lalganj",
         "state": "Uttar Pradesh",
         "pinCode": "230125"
-      }
+      },
+      "status": "Dispatched"
     },
     {
       "id": "57b6",
@@ -2703,7 +2704,8 @@
         "city": "Lalganj",
         "state": "Uttar Pradesh",
         "pinCode": "230125"
-      }
+      },
+      "status": "Delivered"
     },
     {
       "id": "ad37",
@@ -2757,7 +2759,8 @@
         "city": "Lalganj",
         "state": "Uttar Pradesh",
         "pinCode": "230125"
-      }
+      },
+      "status": "Cancelled"
     },
     {
       "id": "e203",
@@ -2810,7 +2813,8 @@
         "city": "Lalganj",
         "state": "Uttar Pradesh",
         "pinCode": "230125"
-      }
+      },
+      "status": "Dispatched"
     },
     {
       "id": "0e82",
