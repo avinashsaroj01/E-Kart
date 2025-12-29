@@ -2517,15 +2517,6 @@
           "phone": "09044587898",
           "state": "Uttar Pradesh",
           "city": "Delhi"
-        },
-        {
-          "name": "Prem",
-          "email": "prem@gmail.com",
-          "phone": "5685984578",
-          "street": "north valley",
-          "city": "atlanta",
-          "state": "california ",
-          "pinCode": "587898"
         }
       ],
       "id": "1"
@@ -2576,7 +2567,30 @@
       "role": "admin"
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "id": "561c",
+      "title": "iPhone X",
+      "description": "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
+      "price": "1002",
+      "discountPercentage": 17.94,
+      "rating": 0,
+      "stock": 34,
+      "brand": "Apple",
+      "category": "smartphones",
+      "thumbnail": "https://i.dummyjson.com/data/products/2/thumbnail.jpg",
+      "images": [
+        "https://i.dummyjson.com/data/products/2/1.jpg",
+        "https://i.dummyjson.com/data/products/2/2.jpg",
+        "https://i.dummyjson.com/data/products/2/3.jpg",
+        "https://i.dummyjson.com/data/products/2/thumbnail.jpg"
+      ],
+      "deleted": true,
+      "productId": "2",
+      "quantity": 1,
+      "user": "8876"
+    }
+  ],
   "orders": [
     {
       "id": "be65",

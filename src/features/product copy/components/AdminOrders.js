@@ -135,7 +135,7 @@ function AdminOrders() {
                           className={`${chooseColor(
                             order.status
                           )} py-1 px-3 rounded-full text-xs`}
-                        >
+                        >I. 
                           {order.status}
                         </span>
                       ) : (
