@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Pagination } from "../../common/Pagination";
 import {
   fetchAllOrdersAsync,
   fetchOrdersByPaginationAsync,
@@ -7,11 +8,14 @@ import {
   updateOrderAsync,
 } from "../../order/orderSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { discountedPrice } from "../../../app/constants";
+import { discountedPrice, ITEMS_PER_PAGE } from "../../../app/constants";
 import { EyeIcon, PencilIcon } from "@heroicons/react/24/outline";
 
 function AdminOrders() {
   const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
+  const [sort, setSort] = useState({});
+
   const orders = useSelector(selectTotalOrders);
   const totalItems = useSelector(selectTotalItems);
   const [editableById, setEditableById] = useState(-1);
@@ -31,7 +35,22 @@ function AdminOrders() {
     dispatch(updateOrderAsync(updatedOrder));
     setEditableById(-1);
   };
+  const handlePage = (page) => {
+    setPage(page);
+    console.log({ page });
+    const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
+  };
 
+  const handleSort = (sortOptions) => {
+    const sort = { _sort: sortOptions.sort, _order: sortOptions.order };
+
+    console.log({ sort });
+    setSort(sort);
+  };
+  useEffect(() => {
+    const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
+    dispatch(fetchAllOrdersAsync({ sort, pagination }));
+  }, [dispatch, page, sort]);
   const chooseColor = (status) => {
     switch (status) {
       case "Pending":
@@ -57,7 +76,17 @@ function AdminOrders() {
                 <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                   <th className="py-3 px-6 text-left">Order #id</th>
                   <th className="py-3 px-6 text-left">Items</th>
-                  <th className="py-3 px-6 text-center">Total Amount</th>
+                  <th
+                    onClick={(e) =>
+                      handleSort({
+                        sort: "totalAmount",
+                        order: sort?._order === "asc" ? "desc" : "asc",
+                      })
+                    }
+                    className="py-3 px-6 text-center"
+                  >
+                    Total Amount
+                  </th>
                   <th className="py-3 px-6 text-center">Shipping Address</th>
                   <th className="py-3 px-6 text-center">Status</th>
                   <th className="py-3 px-6 text-center">Actions</th>
@@ -141,6 +170,12 @@ function AdminOrders() {
           </div>
         </div>
       </div>
+      <Pagination
+        page={page}
+        setPage={setPage}
+        handlePage={handlePage}
+        totalItems={totalItems}
+      ></Pagination>
     </div>
   );
 }

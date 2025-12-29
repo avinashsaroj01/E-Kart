@@ -31,7 +31,7 @@ export function fetchAllOrders() {
   });
 }
 
-export function fetchOrdersByPagination(pagination) {
+export function fetchOrdersByPagination(sort, pagination) {
   // filter = {"category":["smartphone","laptops"]}
   // sort = {_sort:"price",_order="desc"}
   // pagination = {_page:1,_limit=10}
@@ -40,6 +40,9 @@ export function fetchOrdersByPagination(pagination) {
   console.log(pagination);
   for (let key in pagination) {
     queryString += `${key}=${pagination[key]}&`;
+  }
+  for (let key in sort) {
+    queryString += `${key}=${sort[key]}&`;
   }
 
   return new Promise(async (resolve) => {
