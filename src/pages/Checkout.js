@@ -1,3 +1,4 @@
+import React,{useEffect} from 'react'
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -7,7 +8,7 @@ import {
 } from "../features/cart/cartSlice";
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { updateUserAsync } from "../features/auth/authSlice";
+import { updateUserAsync } from "../features/user/userSlice";
 import { useState } from "react";
 import {
   createOrderAsync,
@@ -62,7 +63,7 @@ function Checkout() {
         items,
         totalAmount,
         totalItems,
-        user,
+        user:user.id,
         paymentMethod,
         selectedAddress,
         status: "pending", // other status can be delivered, received.
@@ -77,7 +78,9 @@ function Checkout() {
     //TODO : clear cart after order
     //TODO : on server change the stock number of items
   };
-
+useEffect(() => {
+  console.log(items);
+}, []);
   return (
     <>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
@@ -409,7 +412,7 @@ function Checkout() {
                           <div>
                             <div className="flex justify-between text-base font-medium text-gray-900">
                               <h3>
-                                <a href={item.product.href}>
+                                <a href={item.product.id}>
                                   {item.product.title}
                                 </a>
                               </h3>

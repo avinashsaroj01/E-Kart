@@ -1,7 +1,7 @@
 export function fetchLoggedInUserOrders(userId) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      "http://localhost:5000/orders/?user.id=" + userId
+      "http://localhost:5000/orders/?user=" + userId
     );
     const data = await response.json();
     resolve({ data });

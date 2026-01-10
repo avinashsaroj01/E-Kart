@@ -1,14 +1,14 @@
-import React, { useState, Fragment } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   deleteItemFromCartAsync,
   selectItems,
   updateCartAsync,
-} from './cartSlice';
-import { Dialog, Transition } from '@headlessui/react';
-import { XMarkIcon } from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
+} from "./cartSlice";
+import { Dialog, Transition } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { discountedPrice } from "../../app/constants";
 
 export default function Cart() {
@@ -29,7 +29,9 @@ export default function Cart() {
   const handleRemove = (e, id) => {
     dispatch(deleteItemFromCartAsync(id));
   };
-
+  useEffect(() => {
+    console.log(items);
+  }, []);
   return (
     <>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
@@ -58,7 +60,9 @@ export default function Cart() {
                           <h3>
                             <a href={item.product.href}>{item.product.title}</a>
                           </h3>
-                          <p className="ml-4">${discountedPrice(item.product)}</p>
+                          <p className="ml-4">
+                            ${discountedPrice(item.product)}
+                          </p>
                         </div>
                         <p className="mt-1 text-sm text-gray-500">
                           {item.product.brand}
