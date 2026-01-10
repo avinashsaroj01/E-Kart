@@ -7,7 +7,7 @@ import {
   selectLoggedInUser,
 } from "../authSlice";
 import { Link, Navigate } from "react-router-dom";
-import { checkUserAsync } from "../authSlice";
+import { loginUserAsync } from "../authSlice";
 import { useForm } from "react-hook-form";
 
 export default function ForgotPassword() {
@@ -38,7 +38,7 @@ export default function ForgotPassword() {
             noValidate
             onSubmit={handleSubmit((data) => {
               dispatch(
-                checkUserAsync({ email: data.email, password: data.password })
+                loginUserAsync({ email: data.email, password: data.password })
               );
             })}
             className="space-y-6"

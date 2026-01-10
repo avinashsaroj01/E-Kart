@@ -45,30 +45,32 @@ export default function ProductDetail() {
   const [selectedColor, setSelectedColor] = useState(colors[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[2]);
   const user = useSelector(selectLoggedInUser)
+  console.log("user......" + user);
+
   const items = useSelector(selectItems);
   const product = useSelector(selectProductById);
   const dispatch = useDispatch();
   const params = useParams();
 
-
-  const handleCart = (e)=>{
+  const handleCart = (e) => {
     e.preventDefault();
-    if (items.findIndex((item) => item.productId === product.id) < 0) {
+    if (items.findIndex((item) => item.product.id === product.id) < 0) {
       const newItem = {
-        ...product,
-        productId: product.id,
         quantity: 1,
-        user: user.id,
+        product: product.id,
+        user:user.id,
       };
-      delete newItem["id"];
+      // delete newItem["id"];
+
       dispatch(addToCartAsync(newItem));
     } else {
       console.log("Items already exists");
     }
-  }
+  };
 
   useEffect(() => {
     dispatch(fetchProductByIdAsync(params.id));
+    console.log("Selected items :"+JSON.stringify(items));
   }, [dispatch, params.id]);
 
   return (

@@ -1,9 +1,9 @@
 export function createOrder(order) {
   return new Promise(async (resolve) => {
-    const response = await fetch('http://localhost:8080/orders', {
-      method: 'POST',
+    const response = await fetch("http://localhost:5000/orders", {
+      method: "POST",
       body: JSON.stringify(order),
-      headers: { 'content-type': 'application/json' },
+      headers: { "content-type": "application/json" },
     });
     const data = await response.json();
     // TODO: on server it will only return some info of user (not password)
@@ -12,7 +12,7 @@ export function createOrder(order) {
 }
 export function updateOrder(order) {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:8080/orders/"+order.id, {
+    const response = await fetch("http://localhost:5000/orders/" + order.id, {
       method: "PATCH",
       body: JSON.stringify(order),
       headers: { "content-type": "application/json" },
@@ -25,7 +25,7 @@ export function updateOrder(order) {
 export function fetchAllOrders() {
   return new Promise(async (resolve) => {
     //TODO: we will not hard-code server URL here
-    const response = await fetch("http://localhost:8080/orders");
+    const response = await fetch("http://localhost:5000/orders");
     const data = await response.json();
     resolve({ data });
   });
@@ -47,7 +47,7 @@ export function fetchOrdersByPagination(sort, pagination) {
 
   return new Promise(async (resolve) => {
     //TODO: we will not hard-code server URL here
-    const response = await fetch("http://localhost:8080/orders?" + queryString);
+    const response = await fetch("http://localhost:5000/orders?" + queryString);
     const data = await response.json();
     const totalItems = await response.headers.get("X-Total-Count");
     resolve({ data: { products: data, totalItems: +totalItems } });

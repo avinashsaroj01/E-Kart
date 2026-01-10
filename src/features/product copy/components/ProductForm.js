@@ -15,7 +15,7 @@ import {
   clearSelectedProduct,
 } from "../productSlice";
 import { useForm } from "react-hook-form";
-import { checkUserAsync } from "../../auth/authSlice";
+import { loginUserAsync } from "../../auth/authSlice";
 function ProductForm() {
   const params = useParams();
   const brands = useSelector(selectBrands);

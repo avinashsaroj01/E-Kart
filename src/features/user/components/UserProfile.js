@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUserInfo, updateUserAsync } from "../userSlice";
 import { useForm } from "react-hook-form";
@@ -48,7 +48,10 @@ export default function UserProfile() {
     dispatch(updateUserAsync(newUser));
     setShowAddAddressForm(false);
   };
-
+        
+  useEffect(() => {
+    console.log("logged in user" + user);
+  }, [dispatch, user]);
   return (
     <div>
       <div className="mx-auto mt-12 bg-white max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -59,7 +62,7 @@ export default function UserProfile() {
           <h3 className="text-xl my-5 font-bold tracking-tight text-red-900">
             email address : {user.email}
           </h3>
-          {user.role == "admin" && (
+          {user.role === "admin" && (
             <h3 className="text-xl my-5 font-bold tracking-tight text-red-900">
               Role : {user.role}
             </h3>

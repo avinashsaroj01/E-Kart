@@ -1,7 +1,7 @@
 export function fetchLoggedInUserOrders(userId) {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      "http://localhost:8080/orders/?user.id=" + userId
+      "http://localhost:5000/orders/?user.id=" + userId
     );
     const data = await response.json();
     resolve({ data });
@@ -10,7 +10,7 @@ export function fetchLoggedInUserOrders(userId) {
 
 export function fetchLoggedInUser(userId) {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:8080/users/" + userId);
+    const response = await fetch("http://localhost:5000/users/" + userId);
     const data = await response.json();
     resolve({ data });
   });
@@ -18,7 +18,7 @@ export function fetchLoggedInUser(userId) {
 
 export function updateUser(update) {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:8080/users/" + update.id, {
+    const response = await fetch("http://localhost:5000/users/" + update.id, {
       method: "PATCH",
       body: JSON.stringify(update),
       headers: { "content-type": "application/json" },

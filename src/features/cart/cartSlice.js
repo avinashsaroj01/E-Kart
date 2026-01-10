@@ -15,6 +15,7 @@ const initialState = {
 export const addToCartAsync = createAsyncThunk(
   "cart/addToCart",
   async (item) => {
+    console.log("item...."+item)
     const response = await addToCart(item);
     // The value we return becomes the `fulfilled` action payload
     return response.data;
