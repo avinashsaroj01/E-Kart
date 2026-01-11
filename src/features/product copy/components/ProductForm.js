@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 //  import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 //  import { ChevronDownIcon } from "@heroicons/react/16/solid";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/20/solid";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Modal from "../../common/Modal";
+import { useAlert } from "react-alert";
 import {
   selectCategories,
   selectBrands,
@@ -14,6 +16,7 @@ import {
   updateProductAsync,
   clearSelectedProduct,
 } from "../productSlice";
+
 import { useForm } from "react-hook-form";
 import { loginUserAsync } from "../../auth/authSlice";
 function ProductForm() {
@@ -121,8 +124,8 @@ function ProductForm() {
                         id="title"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       />
-                      {errors.title && (
-                        <p className="text-red-500">{errors.name.message}</p>
+                      {errors?.title && (
+                        <p className="text-red-500">{errors?.name?.message}</p>
                       )}
                     </div>
                   </div>

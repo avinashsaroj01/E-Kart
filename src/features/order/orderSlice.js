@@ -31,9 +31,11 @@ export const updateOrderAsync = createAsyncThunk(
   }
 );
 export const fetchAllOrdersAsync = createAsyncThunk(
-  "orders/fetchAllOrders",
-  async () => {
-    const response = await fetchAllOrders();
+  "order/fetchAllOrders",
+  async ({ sort, pagination }) => {
+    const response = await fetchAllOrders(sort, pagination);
+    console.log(response.data);
+
     // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
@@ -42,6 +44,8 @@ export const fetchOrdersByPaginationAsync = createAsyncThunk(
   "orders/fetchWithPage",
   async ({ sort, pagination }) => {
     const response = await fetchOrdersByPagination(sort, pagination);
+    console.log(response.data);
+
     // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
@@ -79,14 +83,14 @@ export const orderSlice = createSlice({
       })
       .addCase(fetchAllOrdersAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.orders = action.payload;
+        state.orders = action.payload.orders;
       })
       .addCase(fetchOrdersByPaginationAsync.pending, (state) => {
         state.status = "loading";
       })
       .addCase(fetchOrdersByPaginationAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.orders = action.payload.orders;
+        state.orders = action.payload.products;
         state.totalItems = action.payload.totalItems;
       });
   },

@@ -22,12 +22,22 @@ export function updateOrder(order) {
     resolve({ data });
   });
 }
-export function fetchAllOrders() {
+export function fetchAllOrders(sort, pagination) {
+  let queryString = "";
+
+  for (let key in sort) {
+    queryString += `${key}=${sort[key]}&`;
+  }
+  for (let key in pagination) {
+    queryString += `${key}=${pagination[key]}&`;
+  }
+
   return new Promise(async (resolve) => {
     //TODO: we will not hard-code server URL here
-    const response = await fetch("http://localhost:5000/orders");
+    const response = await fetch("http://localhost:5000/orders?" + queryString);
     const data = await response.json();
-    resolve({ data });
+    const totalOrders = await response.headers.get("X-Total-Count");
+    resolve({ data: { orders: data, totalOrders: +totalOrders } });
   });
 }
 

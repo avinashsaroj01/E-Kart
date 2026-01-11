@@ -7,9 +7,10 @@ import {
   selectTotalItems,
   updateOrderAsync,
 } from "../../order/orderSlice";
+
 import { useDispatch, useSelector } from "react-redux";
 import { discountedPrice, ITEMS_PER_PAGE } from "../../../app/constants";
-import { EyeIcon, PencilIcon } from "@heroicons/react/24/outline";
+import { EyeIcon, PencilIcon, ArrowUpIcon,ArrowDownIcon } from "@heroicons/react/24/outline";
 
 function AdminOrders() {
   const dispatch = useDispatch();
@@ -19,10 +20,6 @@ function AdminOrders() {
   const orders = useSelector(selectTotalOrders);
   const totalItems = useSelector(selectTotalItems);
   const [editableById, setEditableById] = useState(-1);
-  useEffect(() => {
-    console.log("total orders......" + orders);
-    dispatch(fetchAllOrdersAsync());
-  }, [dispatch]);
 
   const handleView = () => {};
 
@@ -38,7 +35,6 @@ function AdminOrders() {
   const handlePage = (page) => {
     setPage(page);
     console.log({ page });
-    const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
   };
 
   const handleSort = (sortOptions) => {
@@ -50,6 +46,7 @@ function AdminOrders() {
   useEffect(() => {
     const pagination = { _page: page, _limit: ITEMS_PER_PAGE };
     dispatch(fetchAllOrdersAsync({ sort, pagination }));
+    dispatch(fetchOrdersByPaginationAsync({ sort, pagination }));
   }, [dispatch, page, sort]);
   const chooseColor = (status) => {
     switch (status) {
@@ -66,10 +63,14 @@ function AdminOrders() {
         return "bg-purple-200 text-purple-600";
     }
   };
+  useEffect(() => {
+    console.log("totalItems :" + totalItems);
+    console.log("orders :" + orders);
+  }, []);
   return (
     <div className="overflow-x-auto">
-      <div className="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden">
-        <div className="w-full lg:w-5/6">
+      <div className="min-w-screen min-h-screen bg-gray-100 flex items-center justify-center bg-gray-100 font-sans overflow-hidden px-10">
+        <div className="w-full ">
           <div className="bg-white shadow-md rounded my-6">
             <table className="min-w-max w-full table-auto">
               <thead>
@@ -105,13 +106,13 @@ function AdminOrders() {
                             <div className="mr-2">
                               <img
                                 className="w-6 h-6 rounded-full"
-                                src={item.thumbnail}
+                                src={item.product.thumbnail}
                               />
                             </div>
                           </div>
                           <span>
-                            {item.title}- # {item.id} - ${" "}
-                            {discountedPrice(item)}{" "}
+                            {item.product.title}- # {item.product.id} - ${" "}
+                            {discountedPrice(item.product)}{" "}
                           </span>
                         </div>
                       ))}
@@ -135,7 +136,7 @@ function AdminOrders() {
                           className={`${chooseColor(
                             order.status
                           )} py-1 px-3 rounded-full text-xs`}
-                        >I. 
+                        >
                           {order.status}
                         </span>
                       ) : (
@@ -179,5 +180,7 @@ function AdminOrders() {
     </div>
   );
 }
+
+
 
 export default AdminOrders;

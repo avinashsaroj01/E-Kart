@@ -75,7 +75,7 @@ export const userSlice = createSlice({
   },
 });
 
-export const selectUserOrders = (state) => state.user.userInfo?.orders || [];
+export const selectUserOrders = (state) => state.user.userInfo?.orders ||[];
 export const selectUserInfo = (state) => state.user.userInfo;
 
 export const { increment } = userSlice.actions;

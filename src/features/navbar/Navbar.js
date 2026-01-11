@@ -1,20 +1,19 @@
-import { Fragment } from 'react';
-import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
   Bars3Icon,
   ShoppingCartIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectItems } from '../cart/cartSlice';
+} from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectItems } from "../cart/cartSlice";
 import { selectLoggedInUser } from "../auth/authSlice";
 
-
 const navigation = [
-  { name: "Products", link: "#", user: true },
-  // { name: "Team", link: "#", user: true },
-  { name: "Admin", link: "/admin", admin: true },
+  { name: "Products", link: "/", user: true },
+  { name: "Products", link: "/admin", admin: true },
+  { name: "Orders", link: "/admin/orders", admin: true },
 ];
 const userNavigation = [
   { name: "My Profile", link: "/profile" },
@@ -29,7 +28,7 @@ function classNames(...classes) {
 function NavBar({ children }) {
   const items = useSelector(selectItems);
   const user = useSelector(selectLoggedInUser);
-  
+
   return (
     <>
       <div className="min-h-full">
@@ -43,7 +42,7 @@ function NavBar({ children }) {
                       <Link to="/">
                         <img
                           className="h-8 w-8"
-                          src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                          src="/ecommerce.png"
                           alt="Your Company"
                         />
                       </Link>
@@ -182,6 +181,7 @@ function NavBar({ children }) {
                     </div>
                     <div className="ml-3">
                       <div className="text-base font-medium leading-none text-white">
+                        {/* this should come from userInfo */}
                         {user.name}
                       </div>
                       <div className="text-sm font-medium leading-none text-gray-400">
