@@ -10,7 +10,7 @@ export function fetchAllProducts() {
 export function createProduct(product) {
   return new Promise(async (resolve) => {
     //TODO: we will not hard-code server URL here
-    const response = await fetch("http://localhost:5000/product", {
+    const response = await fetch("http://localhost:5000/products", {
       method: "POST",
       body: JSON.stringify(product),
       "content-type": "application/json",

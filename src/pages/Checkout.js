@@ -103,7 +103,7 @@ useEffect(() => {
                   updateUserAsync({
                     ...user,
                     addresses: [...user.addresses, data],
-                  })
+                  }),
                 );
                 reset();
               })}
@@ -305,41 +305,42 @@ useEffect(() => {
                 Choose from Existing addresses
               </p>
               <ul role="list">
-                {user.addresses.map((address, index) => (
-                  <li
-                    key={index}
-                    className="flex justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200"
-                  >
-                    <div className="flex gap-x-4">
-                      <input
-                        onChange={handleAddress}
-                        name="address"
-                        type="radio"
-                        value={index}
-                        className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                      />
-                      <div className="min-w-0 flex-auto">
-                        <p className="text-sm font-semibold leading-6 text-gray-900">
-                          {address.name}
+                {user &&
+                  user.addresses.map((address, index) => (
+                    <li
+                      key={index}
+                      className="flex justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200"
+                    >
+                      <div className="flex gap-x-4">
+                        <input
+                          onChange={handleAddress}
+                          name="address"
+                          type="radio"
+                          value={index}
+                          className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                        />
+                        <div className="min-w-0 flex-auto">
+                          <p className="text-sm font-semibold leading-6 text-gray-900">
+                            {address.name}
+                          </p>
+                          <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+                            {address.street}
+                          </p>
+                          <p className="mt-1 truncate text-xs leading-5 text-gray-500">
+                            {address.pinCode}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="hidden sm:flex sm:flex-col sm:items-end">
+                        <p className="text-sm leading-6 text-gray-900">
+                          Phone: {address.phone}
                         </p>
-                        <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-                          {address.street}
-                        </p>
-                        <p className="mt-1 truncate text-xs leading-5 text-gray-500">
-                          {address.pinCode}
+                        <p className="text-sm leading-6 text-gray-500">
+                          {address.city}
                         </p>
                       </div>
-                    </div>
-                    <div className="hidden sm:flex sm:flex-col sm:items-end">
-                      <p className="text-sm leading-6 text-gray-900">
-                        Phone: {address.phone}
-                      </p>
-                      <p className="text-sm leading-6 text-gray-500">
-                        {address.city}
-                      </p>
-                    </div>
-                  </li>
-                ))}
+                    </li>
+                  ))}
               </ul>
 
               <div className="mt-10 space-y-10">

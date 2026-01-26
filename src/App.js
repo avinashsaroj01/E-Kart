@@ -7,6 +7,7 @@ import SignupPage from "./pages/SignupPage";
 import PageNotFound from "./pages/404";
 import SignOutPage from "./pages/SignOutPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import { selectUserChecked } from "./features/auth/authSlice";
 
 import {
   createBrowserRouter,
@@ -32,6 +33,7 @@ import {
   selectUserInfo,
   updateUserAsync,
 } from "./features/user/userSlice";
+import { checkAuthAsync } from "./features/auth/authSlice";
 import AdminProtected from "./features/auth/components/AdminProtected";
 import ProductFormPage from "./pages/ProductFormPage";
 import AdminOrdersPage from "./pages/AdminOrdersPage";
@@ -141,19 +143,21 @@ const router = createBrowserRouter([
 function App() {
   const dispatch = useDispatch();
   const user = useSelector(selectLoggedInUser);
+  const userChecked = useSelector(selectUserChecked);
 
-
+useEffect(() => {
+  dispatch(checkAuthAsync());
+}, []);
   useEffect(() => {
     if (user) {
-      console.log("userId : " + user.id);
-      dispatch(fetchItemsByUserIdAsync(user.id));
-      dispatch(fetchLoggedInUserAsync(user.id));
+      dispatch(fetchItemsByUserIdAsync());
+      dispatch(fetchLoggedInUserAsync());
     }
   }, [dispatch, user]);
 
   return (
     <div className="App">
-      <RouterProvider router={router} />
+     { userChecked && <RouterProvider router={router} />}
     </div>
   );
 }

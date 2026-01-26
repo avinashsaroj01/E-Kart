@@ -7,26 +7,29 @@ import {
 
 const initialState = {
   status: "idle",
-   userInfo: {
-    orders: [],
-  }, // this info will be used in case of detailed user info, while auth will
+  userInfo:null,
+  orders: [],
+  // this info will be used in case of detailed user info, while auth will
   // only be used for loggedInUser id etc checks
+  ordersLoaded: false,
 };
 
 export const fetchLoggedInUserOrderAsync = createAsyncThunk(
   "user/fetchLoggedInUserOrders",
-  async (id) => {
-    const response = await fetchLoggedInUserOrders(id);
+  async () => {
+    const response = await fetchLoggedInUserOrders();
     // The value we return becomes the `fulfilled` action payload
+    console.log(response.data);
     return response.data;
-  }
+  },
 );
 
 export const fetchLoggedInUserAsync = createAsyncThunk(
   "user/fetchLoggedInUser",
-  async (id) => {
-    const response = await fetchLoggedInUser(id);
+  async () => {
+    const response = await fetchLoggedInUser();
     // The value we return becomes the `fulfilled` action payload
+    console.log()
     return response.data;
   }
 );
@@ -55,7 +58,13 @@ export const userSlice = createSlice({
       })
       .addCase(fetchLoggedInUserOrderAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.userInfo.orders = action.payload;
+        state.orders = action.payload;
+        state.ordersLoaded=true;
+      })
+      .addCase(fetchLoggedInUserOrderAsync.rejected, (state, action) => {
+        state.status = "idle";
+        state.orders = action.payload;
+        state.ordersLoaded = true;
       })
       .addCase(updateUserAsync.pending, (state) => {
         state.status = "loading";
@@ -75,8 +84,9 @@ export const userSlice = createSlice({
   },
 });
 
-export const selectUserOrders = (state) => state.user.userInfo?.orders ||[];
+export const selectUserOrders = (state) => state.user.orders;
 export const selectUserInfo = (state) => state.user.userInfo;
+export const selectOrdersLoaded = (state) => state.user.ordersLoaded;
 
 export const { increment } = userSlice.actions;
 

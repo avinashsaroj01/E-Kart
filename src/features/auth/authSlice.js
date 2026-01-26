@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { loginUser, createUser, signOut } from "./authAPI";
+import { loginUser, createUser, signOut, checkAuth } from "./authAPI";
 import { updateUser } from "../user/userAPI";
 
 const initialState = {
-  loggedInUser: null, // this should only contain user indentity i.e.  id  , user role
+  loggedInUserToken: null, // this should only contain user indentity i.e.  id  , user role
   status: "idle",
   error: null,
+  userChecked: false,
 };
 
 export const createUserAsync = createAsyncThunk(
@@ -30,6 +31,11 @@ export const loginUserAsync = createAsyncThunk(
     return response.data;
   }
 );
+export const checkAuthAsync = createAsyncThunk("user/checkAuth", async () => {
+  const response = await checkAuth();
+  // The value we return becomes the `fulfilled` action payload
+  return response.data;
+});
 
 export const counterSlice = createSlice({
   name: "user",
@@ -46,14 +52,14 @@ export const counterSlice = createSlice({
       })
       .addCase(createUserAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.loggedInUser = action.payload;
+        state.loggedInUserToken = action.payload;
       })
       .addCase(loginUserAsync.pending, (state) => {
         state.status = "loading";
       })
       .addCase(loginUserAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.loggedInUser = action.payload;
+        state.loggedInUserToken = action.payload;
       })
       .addCase(loginUserAsync.rejected, (state, action) => {
         state.status = "idle";
@@ -64,13 +70,26 @@ export const counterSlice = createSlice({
       })
       .addCase(signOutAsync.fulfilled, (state, action) => {
         state.status = "idle";
-        state.loggedInUser = null;
+        state.loggedInUserToken = null;
+      })
+      .addCase(checkAuthAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(checkAuthAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.loggedInUserToken = action.payload;
+         state.userChecked = true;
+      })
+      .addCase(checkAuthAsync.rejected, (state, action) => {
+        state.status = "idle";
+        state.userChecked = true;
       });
   },
 });
 
-export const selectLoggedInUser = (state) => state.auth.loggedInUser;
+export const selectLoggedInUser = (state) => state.auth.loggedInUserToken;
 export const selectError = (state) => state.auth.error;
+export const selectUserChecked = (state) => state.auth.userChecked;
 
 export const { increment } = counterSlice.actions;
 
