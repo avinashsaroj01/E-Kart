@@ -18,6 +18,7 @@ export const createOrderAsync = createAsyncThunk(
   async (order) => {
     const response = await createOrder(order);
     // The value we return becomes the `fulfilled` action payload
+    console.log(response.data)
     return response.data;
   }
 );

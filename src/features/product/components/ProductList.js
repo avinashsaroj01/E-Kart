@@ -101,6 +101,7 @@ export default function ProductList() {
 
   useEffect(() => {
     setPage(1);
+    console.log("TotalItems :" + totalItems);
   }, [totalItems, sort]);
 
   useEffect(() => {

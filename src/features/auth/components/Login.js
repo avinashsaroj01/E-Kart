@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { increment, incrementAsync, selectError, selectLoggedInUser } from '../authSlice';
+import { checkAuthAsync, increment, incrementAsync, selectError, selectLoggedInUser } from '../authSlice';
 import { Link, Navigate } from 'react-router-dom';
 import { loginUserAsync } from "../authSlice";
 import { useForm } from 'react-hook-form';
@@ -15,7 +15,6 @@ export default function Login() {
     formState: { errors },
   } = useForm();
 
-  console.log(errors);
 
   return (
     <>
@@ -37,8 +36,12 @@ export default function Login() {
             noValidate
             onSubmit={handleSubmit((data) => {
               dispatch(
-                loginUserAsync({ email: data.email, password: data.password })
-              );
+                loginUserAsync({ email: data.email, password: data.password }),
+              )
+                .unwrap()
+                .then(() => {
+                  dispatch(checkAuthAsync()); // 🔑 THIS WAS MISSING
+                });
             })}
             className="space-y-6"
           >

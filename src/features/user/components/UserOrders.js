@@ -23,7 +23,7 @@ export default function UserOrders() {
 
   return (
     <div>
-      {ordersLoaded && 
+      {orders && 
         orders.map((order) => (
           <div>
             <div>

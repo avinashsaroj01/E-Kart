@@ -37,6 +37,7 @@ import { checkAuthAsync } from "./features/auth/authSlice";
 import AdminProtected from "./features/auth/components/AdminProtected";
 import ProductFormPage from "./pages/ProductFormPage";
 import AdminOrdersPage from "./pages/AdminOrdersPage";
+import StripeCheckout from "./pages/StripeCheckout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -83,6 +84,14 @@ const router = createBrowserRouter([
     element: (
       <Protected>
         <Checkout></Checkout>
+      </Protected>
+    ),
+  },
+  {
+    path: "/stripe-checkout",
+    element: (
+      <Protected>
+        <StripeCheckout></StripeCheckout>
       </Protected>
     ),
   },
@@ -146,6 +155,7 @@ function App() {
   const userChecked = useSelector(selectUserChecked);
 
 useEffect(() => {
+  console.log("Checking auth...");
   dispatch(checkAuthAsync());
 }, []);
   useEffect(() => {

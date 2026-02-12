@@ -1,27 +1,47 @@
+import { API_URL } from "../../api/config";
 export function fetchAllProducts() {
-  return new Promise(async (resolve) => {
-    //TODO: we will not hard-code server URL here
-    const response = await fetch("http://localhost:5000/products");
-    const data = await response.json();
-    resolve({ data });
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(`${API_URL}/products`, {
+        credentials: "include", // 🔑 REQUIRED
+      });
+
+      if (!response.ok) {
+        const err = await response.text();
+        return reject(err);
+      }
+
+      const data = await response.json();
+      resolve({ data });
+    } catch (err) {
+      reject(err);
+    }
   });
 }
 
 export function fetchProductById(id) {
-  return new Promise(async (resolve) => {
-    //TODO: we will not hard-code server URL here
-    const response = await fetch("http://localhost:5000/products/" + id);
-    const data = await response.json();
-    resolve({ data });
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(`${API_URL}/products/` + id, {
+        credentials: "include", // 🔑 REQUIRED
+      });
+
+      if (!response.ok) {
+        const err = await response.text();
+        return reject(err);
+      }
+
+      const data = await response.json();
+      resolve({ data });
+    } catch (err) {
+      reject(err);
+    }
   });
 }
 
 export function fetchProductsByFilters(filter, sort, pagination) {
-  // filter = {"category":["smartphone","laptops"]}
-  // sort = {_sort:"price",_order="desc"}
-  // pagination = {_page:1,_limit=10}
-  // TODO : on server we will support multi values in filter
   let queryString = "";
+
   for (let key in filter) {
     const categoryValues = filter[key];
     if (categoryValues.length) {
@@ -29,38 +49,76 @@ export function fetchProductsByFilters(filter, sort, pagination) {
       queryString += `${key}=${lastCategoryValue}&`;
     }
   }
+
   for (let key in sort) {
     queryString += `${key}=${sort[key]}&`;
   }
-  console.log(pagination);
+
   for (let key in pagination) {
     queryString += `${key}=${pagination[key]}&`;
   }
 
-  return new Promise(async (resolve) => {
-    //TODO: we will not hard-code server URL here
-    const response = await fetch(
-      "http://localhost:5000/products?" + queryString
-    );
-    const data = await response.json();
-    const totalItems = await response.headers.get("X-Total-Count");
-    resolve({ data: { products: data, totalItems: +totalItems } });
+  return new Promise(async (resolve, reject) => {
+    try {
+      console.log("try block running......")
+      const response = await fetch(`${API_URL}/products?` + queryString, {
+        credentials: "include", // 🔑 REQUIRED
+      });
+
+      if (!response.ok) {
+        const err = await response.text();
+        return reject(err);
+      }
+
+      const data = await response.json();
+      console.log(response.headers);
+      const totalItems = response.headers.get("X-Total-Count");
+
+      resolve({
+        data: { products: data, totalItems: + totalItems },
+      });
+    } catch (err) {
+      reject(err);
+    }
   });
 }
 
 export function fetchCategories() {
-  return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:5000/categories");
-    const data = await response.json();
-    resolve({ data });
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(`${API_URL}/categories`, {
+        credentials: "include", // 🔑 REQUIRED
+      });
+
+      if (!response.ok) {
+        const err = await response.text();
+        return reject(err);
+      }
+
+      const data = await response.json();
+      resolve({ data });
+    } catch (err) {
+      reject(err);
+    }
   });
 }
 
 export function fetchBrands() {
-  return new Promise(async (resolve) =>{
-    const response = await fetch("http://localhost:5000/brands"); 
-    const data = await response.json()
-    resolve({data})
-  }
-  );
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(`${API_URL}/brands`, {
+        credentials: "include", // 🔑 REQUIRED
+      });
+
+      if (!response.ok) {
+        const err = await response.text();
+        return reject(err);
+      }
+
+      const data = await response.json();
+      resolve({ data });
+    } catch (err) {
+      reject(err);
+    }
+  });
 }

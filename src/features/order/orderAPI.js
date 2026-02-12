@@ -1,27 +1,50 @@
+import { API_URL } from "../../api/config";
 export function createOrder(order) {
-  return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:5000/orders", {
-      method: "POST",
-      body: JSON.stringify(order),
-      headers: { "content-type": "application/json" },
-    });
-    const data = await response.json();
-    // TODO: on server it will only return some info of user (not password)
-    resolve({ data });
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(`${API_URL}/orders`, {
+        method: "POST",
+        credentials: "include", // 🔑 REQUIRED
+        body: JSON.stringify(order),
+        headers: { "content-type": "application/json" },
+      });
+
+      if (!response.ok) {
+        const err = await response.text();
+        return reject(err);
+      }
+
+      const data = await response.json();
+      resolve({ data });
+    } catch (err) {
+      reject(err);
+    }
   });
 }
+
 export function updateOrder(order) {
-  return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:5000/orders/" + order.id, {
-      method: "PATCH",
-      body: JSON.stringify(order),
-      headers: { "content-type": "application/json" },
-    });
-    const data = await response.json();
-    // TODO: on server it will only return some info of user (not password)
-    resolve({ data });
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(`${API_URL}/orders/` + order.id, {
+        method: "PATCH",
+        credentials: "include", // 🔑 REQUIRED
+        body: JSON.stringify(order),
+        headers: { "content-type": "application/json" },
+      });
+
+      if (!response.ok) {
+        const err = await response.text();
+        return reject(err);
+      }
+
+      const data = await response.json();
+      resolve({ data });
+    } catch (err) {
+      reject(err);
+    }
   });
 }
+
 export function fetchAllOrders(sort, pagination) {
   let queryString = "";
 
@@ -32,22 +55,30 @@ export function fetchAllOrders(sort, pagination) {
     queryString += `${key}=${pagination[key]}&`;
   }
 
-  return new Promise(async (resolve) => {
-    //TODO: we will not hard-code server URL here
-    const response = await fetch("http://localhost:5000/orders?" + queryString);
-    const data = await response.json();
-    const totalOrders = await response.headers.get("X-Total-Count");
-    resolve({ data: { orders: data, totalOrders: +totalOrders } });
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(`${API_URL}/orders?` + queryString, {
+        credentials: "include", // 🔑 REQUIRED
+      });
+
+      if (!response.ok) {
+        const err = await response.text();
+        return reject(err);
+      }
+
+      const data = await response.json();
+      const totalOrders = response.headers.get("X-Total-Count");
+
+      resolve({ data: { orders: data, totalOrders: +totalOrders } });
+    } catch (err) {
+      reject(err);
+    }
   });
 }
 
 export function fetchOrdersByPagination(sort, pagination) {
-  // filter = {"category":["smartphone","laptops"]}
-  // sort = {_sort:"price",_order="desc"}
-  // pagination = {_page:1,_limit=10}
-  // TODO : on server we will support multi values in filter
   let queryString = "";
-  console.log(pagination);
+
   for (let key in pagination) {
     queryString += `${key}=${pagination[key]}&`;
   }
@@ -55,11 +86,23 @@ export function fetchOrdersByPagination(sort, pagination) {
     queryString += `${key}=${sort[key]}&`;
   }
 
-  return new Promise(async (resolve) => {
-    //TODO: we will not hard-code server URL here
-    const response = await fetch("http://localhost:5000/orders?" + queryString);
-    const data = await response.json();
-    const totalItems = await response.headers.get("X-Total-Count");
-    resolve({ data: { products: data, totalItems: +totalItems } });
+  return new Promise(async (resolve, reject) => {
+    try {
+      const response = await fetch(`${API_URL}/orders?` + queryString, {
+        credentials: "include", // 🔑 REQUIRED
+      });
+
+      if (!response.ok) {
+        const err = await response.text();
+        return reject(err);
+      }
+
+      const data = await response.json();
+      const totalItems = response.headers.get("X-Total-Count");
+
+      resolve({ data: { products: data, totalItems: +totalItems } });
+    } catch (err) {
+      reject(err);
+    }
   });
 }

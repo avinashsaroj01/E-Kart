@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { loginUser, createUser, signOut, checkAuth } from "./authAPI";
+import { loginUser, createUser, signOut, checkAuth, ResetPassword, sendResetPasswordOtp } from "./authAPI";
 import { updateUser } from "../user/userAPI";
 
 const initialState = {
@@ -7,6 +7,7 @@ const initialState = {
   status: "idle",
   error: null,
   userChecked: false,
+  passwordResetOtp: "",
 };
 
 export const createUserAsync = createAsyncThunk(
@@ -27,16 +28,42 @@ export const loginUserAsync = createAsyncThunk(
   "user/checkUser",
   async (loginInfo) => {
     const response = await loginUser(loginInfo);
+    console.log(response.data);
     // The value we return becomes the `fulfilled` action payload
     return response.data;
   }
 );
 export const checkAuthAsync = createAsyncThunk("user/checkAuth", async () => {
+  
   const response = await checkAuth();
+  console.log(response)
   // The value we return becomes the `fulfilled` action payload
   return response.data;
 });
-
+export const sendResetPasswordOtpAsync = createAsyncThunk(
+  "user/sendResetPasswordOtp",
+  async ({ email }, { rejectWithValue }) => {
+    try {
+      const data = await sendResetPasswordOtp({ email });
+      console.log(data);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
+export const verifyResetPasswordOtpAsync = createAsyncThunk(
+  "user/VerifyPasswordOtp",
+  async ({ email, otp, newPassword }, { rejectWithValue }) => {
+    try {
+      const data = await ResetPassword({ email, otp, newPassword });
+      console.log(data);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+);
 export const counterSlice = createSlice({
   name: "user",
   initialState,
@@ -78,11 +105,26 @@ export const counterSlice = createSlice({
       .addCase(checkAuthAsync.fulfilled, (state, action) => {
         state.status = "idle";
         state.loggedInUserToken = action.payload;
-         state.userChecked = true;
+        state.userChecked = true;
       })
       .addCase(checkAuthAsync.rejected, (state, action) => {
         state.status = "idle";
         state.userChecked = true;
+      })
+      .addCase(sendResetPasswordOtpAsync.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(sendResetPasswordOtpAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.passwordResetOtp = action.payload;
+      })
+      .addCase(verifyResetPasswordOtpAsync.pending, (state) => {
+        state.status = "loading";
+        state.error = null;
+      })
+      .addCase(verifyResetPasswordOtpAsync.fulfilled, (state, action) => {
+        state.status = "idle";
       });
   },
 });

@@ -1,7 +1,9 @@
+import { API_URL } from "../../api/config";
 export function createUser(userData) {
   return new Promise(async (resolve) => {
-    const response = await fetch("http://localhost:5000/auth/signup", {
+    const response = await fetch(`${API_URL}/auth/signup`, {
       method: "POST",
+      credentials: "include",
       body: JSON.stringify(userData),
       headers: { "content-type": "application/json" },
     });
@@ -14,14 +16,16 @@ export function createUser(userData) {
 export function loginUser(loginInfo) {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch("http://localhost:5000/auth/login", {
+      const response = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginInfo),
-        headers: { "content-type": "application/json" },
       });
+
       if (response.ok) {
-        const data = await response.json();
-        resolve({ data });
+        const token = await response.text(); // 🔑 FIX
+        resolve({ data: token });
       } else {
         const error = await response.text();
         reject(error);
@@ -29,27 +33,26 @@ export function loginUser(loginInfo) {
     } catch (error) {
       reject(error);
     }
-
-    // TODO: on server it will only return some info of user (not password)
   });
 }
-export function checkAuth(loginInfo) {
+
+export function checkAuth() {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch("http://localhost:5000/auth/check", {
+      const response = await fetch(`${API_URL}/auth/check`, {
+        credentials: "include",
       });
-      if (response.ok) {
-        const data = await response.json();
-        resolve({ data });
-      } else {
-        const error = await response.text();
-        reject(error);
+
+      if (!response.ok) {
+        reject("Unauthorized");
+        return;
       }
+
+      const data = await response.json(); // ✅ only when OK
+      resolve({ data });
     } catch (error) {
       reject(error);
     }
-
-    // TODO: on server it will only return some info of user (not password)
   });
 }
 
@@ -59,3 +62,40 @@ export function signOut(userId) {
     resolve({ data: "success" });
   });
 }
+
+//sendResetPasswordOtp
+export const sendResetPasswordOtp = async ({ email }) => {
+  try {
+    const response = await fetch(`${API_URL}/auth/send-reset-password-otp`, {
+      method: "POST",
+      credentials: "include", // 🔑 THIS sends cookies
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return { success: false, message: error.message };
+  }
+};
+//ResetPassword
+export const ResetPassword = async ({ email, otp, newPassword }) => {
+  try {
+    const response = await fetch(`${API_URL}/auth/reset-password`, {
+      method: "POST",
+      credentials: "include", // 🔑 THIS sends cookies
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, otp, newPassword }),
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return { success: false, message: error.message };
+  }
+};

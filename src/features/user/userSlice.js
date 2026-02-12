@@ -29,7 +29,7 @@ export const fetchLoggedInUserAsync = createAsyncThunk(
   async () => {
     const response = await fetchLoggedInUser();
     // The value we return becomes the `fulfilled` action payload
-    console.log()
+    console.log(response.data)
     return response.data;
   }
 );
