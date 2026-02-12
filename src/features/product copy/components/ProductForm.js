@@ -272,7 +272,7 @@ function ProductForm() {
                       <input
                         type="text"
                         {...register("thumbnail", {
-                          required: "thumbnail is required",
+                          // required: "thumbnail is required",
                         })}
                         id="thumbnail"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -295,7 +295,7 @@ function ProductForm() {
                       <input
                         type="text"
                         {...register("image1", {
-                          required: "image1 is required",
+                          // required: "image1 is required",
                         })}
                         id="image1"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -316,7 +316,7 @@ function ProductForm() {
                       <input
                         type="text"
                         {...register("image2", {
-                          required: "image2 is required",
+                          // required: "image2 is required",
                         })}
                         id="image2"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -337,7 +337,7 @@ function ProductForm() {
                       <input
                         type="text"
                         {...register("image3", {
-                          required: "image3 is required",
+                          // required: "image3 is required",
                         })}
                         id="image3"
                         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
