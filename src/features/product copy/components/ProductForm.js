@@ -6,7 +6,6 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Modal from "../../common/Modal";
-import { useAlert } from "react-alert";
 import {
   selectCategories,
   selectBrands,
